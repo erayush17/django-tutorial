@@ -32,3 +32,18 @@ class RawProductForm(forms.Form):
         )
     )
     price = forms.DecimalField(initial=1.00)
+
+    class Meta:
+        model = Product
+        fields = {
+            'title',
+            'description',
+            'price'
+        }
+    
+    def clean_title(self, *args, **kwargs):
+        title = self.cleaned_data.get('title')
+        if "CFE" in title:
+            return title
+        else:
+            raise forms.ValidationError("This is not valid title.")
