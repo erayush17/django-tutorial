@@ -2,4 +2,20 @@
 <h1>Hello World</h1>
 {{ request.user }}
 <p>This is a template</p>
+<p>
+    Adding context here. <br>{{ my_text }}
+</p>
+<p>For loop on context</p>
+<br>
+<ul>
+    {% for my_sub_item in my_list %}
+    <li>{{ my_sub_item }}</li>
+    {% endfor %}
+</ul>
+
+<h1>Items</h1>
+<p>{{ obj.title }}</p>
+<br>
+<p>{{ obj.description }}</p>
+
 {% endblock %}
